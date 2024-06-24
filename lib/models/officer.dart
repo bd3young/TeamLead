@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 final String tableOfficers = 'officers';
 
 class OfficerFields {
+  static final List<String> values = [
+    id, breakNumber, firstName, lastName, rdoOne, rdoTwo, rdoThree, sex, rank, shift, notes, shiftBegin, shiftEnd, fullTime, breakOne, breakTwo, lunch, admin, lv, ehs,
+  ];
+
   static final String id = '_id';
   static final String breakNumber = 'breakNumber';
   static final String firstName = 'firstName';
@@ -116,28 +120,53 @@ class Officer {
 
     );
 
-  Map<String, Object?> toJson() => {
-    OfficerFields.id: id,
-    OfficerFields.breakNumber: breakNumber,
-    OfficerFields.firstName: firstName,
-    OfficerFields.lastName: lastName,
-    OfficerFields.rdoOne: rdoOne,
-    OfficerFields.rdoTwo: rdoTwo,
-    OfficerFields.rdoThree: rdoThree,
-    OfficerFields.sex: sex,
-    OfficerFields.rank: rank,
-    OfficerFields.shift: shift,
-    OfficerFields.notes: notes,
-    OfficerFields.shiftBegin: shiftBegin.toString(),
-    OfficerFields.shiftEnd: shiftEnd.toString(),
-    OfficerFields.fullTime: fullTime ? 1 :0,
-    OfficerFields.breakOne: breakOne ? 1 :0,
-    OfficerFields.breakTwo: breakTwo ? 1 :0,
-    OfficerFields.lunch: lunch ? 1 :0,
-    OfficerFields.admin: admin ? 1 :0,
-    OfficerFields.lv: lv ? 1 :0,
-    OfficerFields.ehs: ehs ? 1 :0, 
+    static Officer fromJson(Map<String, Object?> json) => Officer(
+      id: json[OfficerFields.id] as int?,
 
-  };
+      breakNumber: json[OfficerFields.breakNumber] as int,
+      firstName: json[OfficerFields.firstName] as String,
+      lastName: json[OfficerFields.lastName] as String,
+      rdoOne: json[OfficerFields.rdoOne] as String,
+      rdoTwo: json[OfficerFields.rdoTwo] as String,
+      rdoThree: json[OfficerFields.rdoThree] as String,
+      sex: json[OfficerFields.sex] as String,
+      rank: json[OfficerFields.rank] as String,
+      shift: json[OfficerFields.shift] as String,
+      notes: json[OfficerFields.notes] as String,
+      shiftBegin: json[OfficerFields.shiftBegin] as TimeOfDay,
+      shiftEnd: json[OfficerFields.shiftEnd] as TimeOfDay,
+      fullTime: json[OfficerFields.fullTime] == 1,
+      breakOne: json[OfficerFields.breakOne] == 1,
+      breakTwo: json[OfficerFields.breakTwo] == 1,
+      lunch: json[OfficerFields.lunch] == 1,
+      admin: json[OfficerFields.admin] == 1,
+      lv: json[OfficerFields.lv] == 1,
+      ehs: json[OfficerFields.ehs] == 1,
+
+    );
+
+    Map<String, Object?> toJson() => {
+      OfficerFields.id: id,
+      OfficerFields.breakNumber: breakNumber,
+      OfficerFields.firstName: firstName,
+      OfficerFields.lastName: lastName,
+      OfficerFields.rdoOne: rdoOne,
+      OfficerFields.rdoTwo: rdoTwo,
+      OfficerFields.rdoThree: rdoThree,
+      OfficerFields.sex: sex,
+      OfficerFields.rank: rank,
+      OfficerFields.shift: shift,
+      OfficerFields.notes: notes,
+      OfficerFields.shiftBegin: shiftBegin.toString(),
+      OfficerFields.shiftEnd: shiftEnd.toString(),
+      OfficerFields.fullTime: fullTime ? 1 :0,
+      OfficerFields.breakOne: breakOne ? 1 :0,
+      OfficerFields.breakTwo: breakTwo ? 1 :0,
+      OfficerFields.lunch: lunch ? 1 :0,
+      OfficerFields.admin: admin ? 1 :0,
+      OfficerFields.lv: lv ? 1 :0,
+      OfficerFields.ehs: ehs ? 1 :0, 
+
+    };
 
 }
