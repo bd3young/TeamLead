@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Team Lead',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -28,10 +28,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Team Lead Home Page'),
     );
   }
 }
@@ -122,4 +122,83 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  
 }
+
+class BottomNavigationBarTeamLeadApp extends StatelessWidget {
+  const BottomNavigationBarTeamLeadApp({super.key});
+  
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: BottomNavigationBarTeamLeadApp(),
+    );
+  }
+}
+
+class BottomNavigationBarTeamLead extends StatefulWidget {
+  const BottomNavigationBarTeamLead({super.key});
+  @override
+  State<BottomNavigationBarTeamLead> createState() =>
+    _BottomNavigationBarTeamLeadState();
+  
+}
+
+class _BottomNavigationBarTeamLeadState
+    extends State<BottomNavigationBarTeamLead>{
+      int _selectedIndex = 1;
+      static const TextStyle optionStyle = 
+        TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      static const List<Widget> _widgetOptions = <Widget>[
+        Text(
+          'Index 0: Shift',
+          style: optionStyle,
+        ),
+        Text(
+          'Index 1: Home',
+          style: optionStyle,
+        ),
+        Text(
+          'Index 2: Officers',
+          style: optionStyle,
+        ),
+      ];
+
+      void _onItemTapped(int index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+      }
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('BottomNavigationBar Team Lead'),
+            ),
+            body: Center(
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Shift',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Officers',
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.lightGreen,
+              onTap: _onItemTapped,
+              ),
+        );
+      }
+    }
