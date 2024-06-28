@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class OfficersPage extends StatelessWidget {
-  const OfficersPage({super.key});
+class ShiftsPage extends StatelessWidget {
+  const ShiftsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: Colors.blue,
       child: const Center(
         child: Text(
-          "Officers"
+          "Shifts"
         ),
       ),
     );
