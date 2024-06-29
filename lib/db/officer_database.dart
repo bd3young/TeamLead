@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -57,10 +56,8 @@ class OfficersDatabase {
       ${OfficerFields.lunch} $boolType,
       ${OfficerFields.admin} $boolType,
       ${OfficerFields.lv} $boolType,
-      ${OfficerFields.ehs} $boolType,
-    )
-    
-    ''');
+      ${OfficerFields.ehs} $boolType
+    )''');
 
   }
 
@@ -99,7 +96,7 @@ class OfficersDatabase {
     final db = await instance.database;
 
     final orderBy = '${OfficerFields.rank} DESC';
-
+    
     final result = await db.query(tableOfficers, orderBy: orderBy);
 
     return result.map((json) => Officer.fromJson(json)).toList();

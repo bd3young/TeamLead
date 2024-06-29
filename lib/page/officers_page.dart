@@ -1,11 +1,8 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:teamlead/db/officer_database.dart';
 import 'package:teamlead/models/officer.dart';
 import 'package:teamlead/page/edit_officer_page.dart';
 import 'package:teamlead/widgets/officers.dart';
-import 'package:teamlead/page/officer_detail_page.dart';
 
 class OfficersPage extends StatefulWidget {
   const OfficersPage({super.key});
@@ -48,6 +45,7 @@ class _OfficersPageState extends State<OfficersPage> {
           'Officers',
           style: TextStyle(fontSize: 24),
         ),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: isLoading
@@ -61,6 +59,7 @@ class _OfficersPageState extends State<OfficersPage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
         child: Icon(Icons.add),
         onPressed: () async {
           await Navigator.of(context).push(
