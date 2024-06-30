@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:teamlead/page/shifts_page.dart';
-import 'package:teamlead/db/officer_database.dart';
 
 class OfficerFormWidget extends StatelessWidget {
   final String? firstName;
@@ -97,15 +95,17 @@ class OfficerFormWidget extends StatelessWidget {
               const SizedBox(height: 8),
               buildShift(),
               const SizedBox(height: 8),
-              Checkbox(
-                value: fullTime ?? true,
-                onChanged: onChangedFullTime,
-              ),
-              const SizedBox(height: 8),
-              Checkbox(
-                value: admin ?? false,
-                onChanged: onChangedAdmin,
-              ),
+              
+              // const SizedBox(height: 8),
+              // Checkbox(
+              //   value: fullTime ?? true,
+              //   onChanged: onChangedFullTime,
+              // ),
+              // const SizedBox(height: 8),
+              // Checkbox(
+              //   value: admin ?? false,
+              //   onChanged: onChangedAdmin,
+              // ),
             ],
           ),
         ),
