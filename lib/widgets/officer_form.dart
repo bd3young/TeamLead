@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:teamlead/page/shifts_page.dart';
 
 class OfficerFormWidget extends StatelessWidget {
@@ -225,23 +226,30 @@ class OfficerFormWidget extends StatelessWidget {
             shift != null && shift.isEmpty ? 'The reghular day off cannot be empty' : null,
         onChanged: onChangedShift,
       );
-  Widget buildNotes() =>  FormFi(
-        maxLines: 1,
-        initialValue: sex,
-        style: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-        ),
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-          hintText: 'Gender',
-          hintStyle: TextStyle(color: Colors.black),
-        ),
-        validator: (sex) =>
-            sex != null && sex.isEmpty ? 'The reghular day off cannot be empty' : null,
-        onChanged: onChangedSex,
-      );
+  Widget buildShiftBegins(BuildContext context) {
+        return Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Shift Begins"),
+              ElevatedButton(
+                onPressed: () async {
+                  shiftBegin = await showTimePicker(
+                    context: context, 
+                    initialTime: shiftBegin,
+                    initialEntryMode: TimePickerEntryMode.dial,
+                    );
+                    if (shiftBegin != null) {
+                      setState(() {
+
+                      })
+                    }
+                }, 
+                child: Text("${shiftBegin.hour}:${shiftBegin.minute}"),)
+            ],
+          )
+        )
+      };
 
       
 }
