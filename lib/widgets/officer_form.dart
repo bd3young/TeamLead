@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:teamlead/page/shifts_page.dart';
+import 'package:teamlead/db/officer_database.dart';
 
 class OfficerFormWidget extends StatelessWidget {
   final String? firstName;
@@ -84,6 +85,27 @@ class OfficerFormWidget extends StatelessWidget {
               const SizedBox(height: 8),
               buildLastName(),
               const SizedBox(height: 8),
+              buildRdoOne(),
+              const SizedBox(height: 8),
+              buildRdoTwo(),
+              const SizedBox(height: 8),
+              buildRdoThree(),
+              const SizedBox(height: 8),
+              buildSex(),
+              const SizedBox(height: 8),
+              buildRank(),
+              const SizedBox(height: 8),
+              buildShift(),
+              const SizedBox(height: 8),
+              Checkbox(
+                value: fullTime ?? true,
+                onChanged: onChangedFullTime,
+              ),
+              const SizedBox(height: 8),
+              Checkbox(
+                value: admin ?? false,
+                onChanged: onChangedAdmin,
+              ),
             ],
           ),
         ),
@@ -223,33 +245,61 @@ class OfficerFormWidget extends StatelessWidget {
           hintStyle: TextStyle(color: Colors.black),
         ),
         validator: (shift) =>
-            shift != null && shift.isEmpty ? 'The reghular day off cannot be empty' : null,
+            shift != null && shift.isEmpty ? 'Shift cannot be empty' : null,
         onChanged: onChangedShift,
       );
-  Widget buildShiftBegins(BuildContext context) {
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("Shift Begins"),
-              ElevatedButton(
-                onPressed: () async {
-                  shiftBegin = await showTimePicker(
-                    context: context, 
-                    initialTime: shiftBegin,
-                    initialEntryMode: TimePickerEntryMode.dial,
-                    );
-                    if (shiftBegin != null) {
-                      setState(() {
-
-                      })
-                    }
-                }, 
-                child: Text("${shiftBegin.hour}:${shiftBegin.minute}"),)
-            ],
-          )
-        )
-      };
+  
+  // Widget buildShiftBegins(BuildContext context) {
+  //       return Center(
+  //         child: Column(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: <Widget>[
+  //             Text("Shift Begins"),
+  //             ElevatedButton(
+  //               onPressed: () async {
+  //                 await showTimePicker(
+  //                   context: context, 
+  //                   initialTime: TimeOfDay.now(),
+  //                   initialEntryMode: TimePickerEntryMode.dial,
+  //                   ).then((value) {
+  //                     setState(() {
+  //                       onChangedShiftBegin = value!;
+  //                     }); 
+  //                   });
+  //               }, 
+  //               child: Text("${shiftBegin.hour}:${shiftBegin.minute}"),)
+  //           ],
+  //         )
+  //       )
+  //     };
+  Widget buildShiftBegin(BuildContext context) => TextFormField(
+        maxLines: 1,
+        initialValue: shiftBegin.toString(),
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Gender',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+      );
+  Widget buildShiftEnd(BuildContext context) => TextFormField(
+        maxLines: 1,
+        initialValue: shiftEnd.toString(),
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Gender',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+      );
 
       
 }
