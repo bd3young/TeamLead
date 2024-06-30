@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teamlead/page/shifts_page.dart';
 
 class OfficerFormWidget extends StatelessWidget {
   final String? firstName;
@@ -122,7 +123,7 @@ class OfficerFormWidget extends StatelessWidget {
             lastName != null && lastName.isEmpty ? 'The Last Name cannot be empty' : null,
         onChanged: onChangedLastName,
       );
-      Widget buildRdoOne() => TextFormField(
+  Widget buildRdoOne() => TextFormField(
         maxLines: 1,
         initialValue: rdoOne,
         style: const TextStyle(
@@ -136,10 +137,10 @@ class OfficerFormWidget extends StatelessWidget {
           hintStyle: TextStyle(color: Colors.black),
         ),
         validator: (rdoOne) =>
-            rdoOne != null && rdoOne.isEmpty ? 'The Last Name cannot be empty' : null,
+            rdoOne != null && rdoOne.isEmpty ? 'The regular day off cannot be empty' : null,
         onChanged: onChangedRdoOne,
       );
-      Widget buildRdoTwo() => TextFormField(
+  Widget buildRdoTwo() => TextFormField(
         maxLines: 1,
         initialValue: rdoTwo,
         style: const TextStyle(
@@ -153,7 +154,94 @@ class OfficerFormWidget extends StatelessWidget {
           hintStyle: TextStyle(color: Colors.black),
         ),
         validator: (rdoTwo) =>
-            rdoTwo != null && rdoTwo.isEmpty ? 'The Last Name cannot be empty' : null,
+            rdoTwo != null && rdoTwo.isEmpty ? 'The regular day off cannot be empty' : null,
         onChanged: onChangedRdoTwo,
       );
+  Widget buildRdoThree() => TextFormField(
+        maxLines: 1,
+        initialValue: rdoThree,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Second Day Off',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (rdoThree) =>
+            rdoThree != null && rdoThree.isEmpty ? 'The regular day off cannot be empty' : null,
+        onChanged: onChangedRdoThree,
+      );
+  Widget buildSex() => TextFormField(
+        maxLines: 1,
+        initialValue: sex,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Gender',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (sex) =>
+            sex != null && sex.isEmpty ? 'Gender cannot be empty' : null,
+        onChanged: onChangedSex,
+      );
+  Widget buildRank() => TextFormField(
+        maxLines: 1,
+        initialValue: rank,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Rank',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (rank) =>
+            rank != null && rank.isEmpty ? 'Rank cannot be empty' : null,
+        onChanged: onChangedRank,
+      );
+  Widget buildShift() => TextFormField(
+        maxLines: 1,
+        initialValue: shift,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Gender',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (shift) =>
+            shift != null && shift.isEmpty ? 'The reghular day off cannot be empty' : null,
+        onChanged: onChangedShift,
+      );
+  Widget buildNotes() =>  FormFi(
+        maxLines: 1,
+        initialValue: sex,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Gender',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (sex) =>
+            sex != null && sex.isEmpty ? 'The reghular day off cannot be empty' : null,
+        onChanged: onChangedSex,
+      );
+
+      
 }
